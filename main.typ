@@ -27,6 +27,8 @@
 = Théorie
 #lorem(20)
 
+Exemple de bibliographie @Typst
+
 = Simulations
 #lorem(40)
 
@@ -38,3 +40,5 @@
 
 = Conclusion
 #lorem(200)
+
+#bibliography("bibliography.yml")

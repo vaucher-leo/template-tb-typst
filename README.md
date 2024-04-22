@@ -19,7 +19,7 @@ To get a fast preview and the ability to go from pdf to code, use the Typst prev
 
 ## Typst website
 
-I didn't tried it yet but if you import all the files in a project on their editor on the website it should work.
+Import all the files in a project on their editor on the website and it works! (Thanks to Florian for testing)
 
 # Languages
 

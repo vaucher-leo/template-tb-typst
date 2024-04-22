@@ -33,9 +33,17 @@
     lang: "en", 
     size: 12pt,)
   set heading(numbering: "1.1   ")
-  show heading: it => [
+  show heading.where(
+  level: 1
+  ): it => [
     #set text(weight: 600, size: 20pt)
     #block(v(4.5cm) + it.body + v(1cm))
+  ]
+  show heading.where(
+  level: 2
+  ): it => [
+    #set text(weight: 600, size: 15pt)
+    #block(v(0cm) + it + v(0.5cm))
   ]
 
   // Table of contents.
@@ -43,7 +51,7 @@
     level: 1
   ): it => {
     v(12pt, weak: true)
-    text(weight: 550 ,v(0.3cm) + it)
+    text(weight: 550 ,v(0.1cm) + it)
   }
   show outline.entry.where(
     level: 2
@@ -190,17 +198,56 @@
   v(4cm)
   text("Yverdon-les-Bains, " + date)
 
+  // Reset Firt title margin
+  show heading.where(
+  level: 1
+  ): it => [
+    #set text(weight: 600, size: 20pt)
+    #block(v(0cm) + it.body + v(0.5cm))
+  ]
+
   pagebreak(to: "odd")
 
+  // CDC
+  heading(
+    numbering: none,
+    outlined: true,
+    "Specifications"
+  )
+
+  include "page/Specifications.typ"
+
+  pagebreak(to: "odd")
+
+  // Resume
+  heading(
+    numbering: none,
+    outlined: true,
+    "Summary"
+  )
+
+  include "page/Summary.typ"
+
+  pagebreak(to: "odd")
+
+  v(1cm)
   outline(depth: 3, indent: true, title: v(-1cm) + "Table of contents")
 
   pagebreak(to: "odd")
 
   // Rest of document
 
-  show heading: it => [
+  show heading.where(
+  level: 1
+  ): it => [
     #set text(weight: 600, size: 20pt)
-    #block(v(1cm) + it.body + v(1cm))
+    #block(v(0.5cm) + it.body + v(0.5cm))
+  ]
+  show heading.where(
+  level: 2
+  ): it => [
+    #set text(weight: 600, size: 15pt)
+    #block(v(0cm) + it + v(0.5cm))
   ]
 
   set page(
